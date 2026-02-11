@@ -46,7 +46,7 @@ export default function CryptoList() {
 
       <div className="grid md:grid-cols-3 gap-6">
         {coins.map((coin) => (
-          <CryptoCard key={coin.id} coin={coin} />
+          <CryptoCard key={coin.id} coin={coin} currency={currency} />
         ))}
       </div>
 

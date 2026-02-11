@@ -1,4 +1,4 @@
-import CryptoList from "@/components/CryptoList";
+import CryptoList from "../components/CryptoList";
 
 export default function Home() {
   return (

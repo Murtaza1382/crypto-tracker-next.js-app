@@ -1,4 +1,4 @@
-import { Crypto } from "@/types/crypto";
+import { Crypto } from "../types/crypto";
 
 interface Props {
   coin: Crypto;

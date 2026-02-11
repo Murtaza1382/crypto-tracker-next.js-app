@@ -1,4 +1,4 @@
-import { Crypto } from "@/types/crypto";
+import { Crypto } from "../types/crypto";
 
 export async function fetchCrypto(): Promise<Crypto[]> {
   const res = await fetch("/api/crypto");

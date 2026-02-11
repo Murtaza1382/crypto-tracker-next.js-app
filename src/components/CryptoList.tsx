@@ -35,7 +35,11 @@ export default function CryptoList() {
   }, [page, currency, search]);
 
   if (loading) return <Loading />;
-  if (error) return <NotFound message={error} />;
+  if (error) {
+    return (
+      <NotFound message="CoinGecko API rate limit reached. Please try again in a few seconds." />
+    );
+  }
   if (!coins || coins.length === 0)
     return <NotFound message="No coins found" />;
 
@@ -50,7 +54,7 @@ export default function CryptoList() {
         ))}
       </div>
 
-      {!search && <Pagination page={page} setPage={setPage} />}
+      {!search && <Pagination page={page} setPage={setPage} maxPage={50} />}
     </>
   );
 }

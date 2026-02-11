@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +35,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+# crypto-tracker-next.js-app
+🚀 Crypto Tracker App  A modern and responsive Crypto Tracker Web Application built with Next.js, TypeScript, and Tailwind CSS that allows users to track real-time cryptocurrency prices and market data using a free public API.
+>>>>>>> b5ef17029811789dad73945e8468900d1e822bbf

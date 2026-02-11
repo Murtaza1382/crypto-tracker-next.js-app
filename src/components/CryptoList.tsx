@@ -2,42 +2,39 @@
 
 import { useEffect, useState } from "react";
 import { fetchCrypto } from "../lib/fetchCrypto";
-import { Crypto } from "../types/crypto";
 import CryptoCard from "./CryptoCard";
+import Pagination from "./Pagination";
+import CurrencySelector from "./CurrencySelector";
 import SearchBar from "./SearchBar";
 
 export default function CryptoList() {
-  const [coins, setCoins] = useState<Crypto[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [coins, setCoins] = useState<any[]>([]);
+  const [page, setPage] = useState(1);
+  const [currency, setCurrency] = useState("usd");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetchCrypto()
-      .then((data) => setCoins(data))
-      .finally(() => setLoading(false));
-  }, []);
-
-  const filteredCoins = coins.filter((coin) =>
-    coin.name.toLowerCase().includes(search.toLowerCase()),
-  );
-
-  if (loading) {
-    return <p className="text-center text-white">Loading...</p>;
-  }
+    fetchCrypto(page, currency, search).then((data) => {
+      if (search && data.coins) {
+        setCoins(data.coins);
+      } else {
+        setCoins(data);
+      }
+    });
+  }, [page, currency, search]);
 
   return (
     <>
+      <CurrencySelector currency={currency} setCurrency={setCurrency} />
       <SearchBar search={search} setSearch={setSearch} />
 
-      {filteredCoins.length === 0 ? (
-        <p className="text-center text-gray-400">No coins found</p>
-      ) : (
-        <div className="grid md:grid-cols-3 gap-6">
-          {filteredCoins.map((coin) => (
-            <CryptoCard key={coin.id} coin={coin} />
-          ))}
-        </div>
-      )}
+      <div className="grid md:grid-cols-3 gap-6">
+        {coins?.map((coin: any) => (
+          <CryptoCard key={coin.id} coin={coin} />
+        ))}
+      </div>
+
+      {!search && <Pagination page={page} setPage={setPage} />}
     </>
   );
 }

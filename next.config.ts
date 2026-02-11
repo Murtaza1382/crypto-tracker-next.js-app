@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    // Add all external image domains you plan to use
+    domains: ["coin-images.coingecko.com"],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
